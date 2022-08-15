@@ -19,10 +19,10 @@ export const crearZonaService = async (token) => {
 
 			if (data.Message === 'Error Usuario no Autenticado') {
 				localStorage.removeItem('token');
-				location.href = `${location.protocol}//${location.host}/#/login`;
+				location.href = `https://larrysfinolb.github.io/annual-sdk/dist/#/login`;
 			}
 
-			if (data.Status === 0) location.href = `${location.protocol}//${location.host}/#/listarzonas`;
+			if (data.Status === 0) location.href = `https://larrysfinolb.github.io/annual-sdk/dist/#/listarzonas`;
 		} catch (error) {
 			console.log(error);
 		}
@@ -37,7 +37,7 @@ export const listarZonasService = async (token) => {
 
 		if (data.Message === 'Error Usuario no Autenticado') {
 			localStorage.removeItem('token');
-			location.href = `${location.protocol}//${location.host}/#/login`;
+			location.href = `https://larrysfinolb.github.io/annual-sdk/dist/#/login`;
 		}
 
 		if (data.Status === 0) {

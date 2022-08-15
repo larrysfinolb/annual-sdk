@@ -15,8 +15,8 @@ const router = async () => {
 	let hash = getHash();
 	let route = resolveRoutes(hash);
 
-	if (route !== '/login' && !token) location.href = `${location.protocol}//${location.host}/#/login`;
-	else if (route === '/login' && token) location.href = `${location.protocol}//${location.host}`;
+	if (route !== '/login' && !token) location.href = `https://larrysfinolb.github.io/annual-sdk/dist/#/login`;
+	else if (route === '/login' && token) location.href = `https://larrysfinolb.github.io/annual-sdk/dist`;
 
 	const wrapper = document.querySelector('#wrapper');
 

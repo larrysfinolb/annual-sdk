@@ -13,7 +13,7 @@ export const loginService = async () => {
 			const data = await loginSaint(idUser, password);
 			if (data.Message !== 'Usuario no registrado') localStorage.setItem('token', data.Message);
 
-			if (data.Status === 0) location.href = `${location.protocol}//${location.host}`;
+			if (data.Status === 0) location.href = `https://larrysfinolb.github.io/annual-sdk/dist`;
 		} catch (error) {
 			console.log(error);
 		}
@@ -24,6 +24,6 @@ export const logoutService = async () => {
 	const logout = document.querySelector('#logout');
 	logout.addEventListener('click', (e) => {
 		localStorage.removeItem('token');
-		location.href = `${location.protocol}//${location.host}/#/login`;
+		location.href = `https://larrysfinolb.github.io/annual-sdk/dist/#/login`;
 	});
 };

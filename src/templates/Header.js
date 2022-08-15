@@ -9,7 +9,7 @@ const Header = () => {
                 <div class="collapse navbar-collapse w-100" id="navbarNavDropdown">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="https://larrysfinolb.github.io/annual-sdk/dist">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Zonas</a>
