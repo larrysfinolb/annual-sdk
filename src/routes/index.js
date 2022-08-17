@@ -1,45 +1,52 @@
-import Inicio from '../pages/Inicio';
+import hostname from '../utils/hostname';
+
+import Home from '../pages/Home';
 import Login from '../pages/Login';
-import CrearZona from '../pages/CrearZona';
-import ListarZonas from '../pages/ListarZonas';
+import CreateZone from '../pages/CreateZone';
+import SearchZone from '../pages/SearchZone';
+import UpdateZone from '../pages/UpdateZone';
+import ListZones from '../pages/ListZones';
+import DeleteZona from '../pages/DeleteZone';
+import _404 from '../pages/_404';
 
 import getHash from '../utils/getHash';
-import resolveRoutes from '../utils/resolveRoutes';
-
-import { loginService, logoutService } from '../services/sessionService';
-import { crearZonaService, listarZonasService } from '../services/zonesService';
-
-const token = localStorage.getItem('token');
+import resolveRoute from '../utils/resolveRoute';
 
 const router = async () => {
-	let hash = getHash();
-	let route = resolveRoutes(hash);
+	const token = localStorage.getItem('token');
 
-	if (route !== '/login' && !token) location.href = `${location.protocol}//${location.host}/#/login`;
-	else if (route === '/login' && token) location.href = `${location.protocol}//${location.host}`;
+	let hash = getHash();
+	let route = resolveRoute(hash);
+
+	if (route !== '/login' && !token) location.href = `${hostname}#/login`;
+	else if (route === '/login' && token) location.href = `${hostname}#`;
 
 	const wrapper = document.querySelector('#wrapper');
 
 	switch (route) {
 		case '/':
-			wrapper.innerHTML = Inicio();
-			await logoutService();
-			break;
-		case '/crearzona':
-			wrapper.innerHTML = CrearZona();
-			await crearZonaService(token);
-			await logoutService();
-			break;
-		case '/listarzonas':
-			wrapper.innerHTML = ListarZonas();
-			await listarZonasService(token);
-			await logoutService();
+			await Home(wrapper);
 			break;
 		case '/login':
-			wrapper.innerHTML = Login();
-			await loginService();
+			await Login(wrapper);
+			break;
+		case '/crearzona':
+			await CreateZone(wrapper, token);
+			break;
+		case '/buscarzona':
+			await SearchZone(wrapper, token);
+			break;
+		case '/editarzona':
+			await UpdateZone(wrapper, token);
+			break;
+		case '/listarzonas':
+			await ListZones(wrapper, token);
+			break;
+		case '/borrarzona':
+			await DeleteZona(wrapper, token);
 			break;
 		default:
+			await _404(wrapper);
 	}
 };
 

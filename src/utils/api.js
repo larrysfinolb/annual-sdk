@@ -26,6 +26,30 @@ export const crearZona = async (zona, token) => {
 	}
 };
 
+export const buscarZona = async (codigoZona, token) => {
+	const apiURL = `${API}/adm/buscarzona`;
+
+	try {
+		const response = await axios.post(apiURL, { codigoZona, token });
+		const data = response.data;
+		return data;
+	} catch (error) {
+		console.log('Error in API:', error);
+	}
+};
+
+export const editarZona = async (zona, token) => {
+	const apiURL = `${API}/adm/editarzona`;
+
+	try {
+		const response = await axios.post(apiURL, { zona, token });
+		const data = response.data;
+		return data;
+	} catch (error) {
+		console.log('Error in API:', error);
+	}
+};
+
 export const listarZonas = async (parametro, token) => {
 	const apiURL = `${API}/adm/listarzonas`;
 
@@ -35,5 +59,17 @@ export const listarZonas = async (parametro, token) => {
 		return data;
 	} catch (error) {
 		console.log('Error en la API:', error);
+	}
+};
+
+export const borrarZona = async (codigoZona, token) => {
+	const apiURL = `${API}/adm/borrarzona`;
+
+	try {
+		const response = await axios.post(apiURL, { codigoZona, token });
+		const data = response.data;
+		return data;
+	} catch (error) {
+		console.log('Error in API:', error);
 	}
 };

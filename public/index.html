@@ -14,9 +14,14 @@
 		/>
 	</head>
 	<body>
-		<div id="wrapper" class="vh-100 d-grid" style="--bs-row: 3">
-			<header id="header"></header>
-			<main id="main"></main>
+		<div id="wrapper" class="vh-100 d-grid" style="--bs-row: 3; grid-template-rows: auto 1fr"></div>
+
+		<div id="spinner" class="d-none position-fixed top-0" style="background-color: rgba(0, 0, 0, 0.75); z-index: 9999">
+			<div class="d-flex justify-content-center align-items-center vw-100 vh-100">
+				<div class="spinner-border text-light" role="status">
+					<span class="visually-hidden">Cargando...</span>
+				</div>
+			</div>
 		</div>
 
 		<!-- JavaScript Bundle with Popper -->
