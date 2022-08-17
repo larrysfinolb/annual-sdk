@@ -56,6 +56,10 @@ const CreateZone = async (wrapper, token) => {
 				case 0:
 					location.href = `${hostname}#/listarzonas`;
 					break;
+				case -98:
+					alert.innerHTML = 'El Codigo no es Valido o puede que se este utilizando.';
+					alert.classList.remove('d-none');
+					break;
 				case -101:
 					localStorage.removeItem('token');
 					location.href = `${hostname}#/login`;

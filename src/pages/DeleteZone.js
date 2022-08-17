@@ -53,6 +53,12 @@ const DeleteZone = async (wrapper, token) => {
 					alert.classList.remove('d-none');
 					await ZonesTable('#table', token);
 					break;
+				case -2:
+					alert.innerHTML = 'Esta Zona no se puede Eliminar, se encuentra Asociada a un Cliente';
+					alert.classList.add('alert-danger');
+					alert.classList.remove('alert-success');
+					alert.classList.remove('d-none');
+					break;
 				case -101:
 					location.href = `${hostname}#/login`;
 					break;
